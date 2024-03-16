@@ -1,5 +1,4 @@
-FROM nginx:letest 
-WORKDIR /app
-COPY . .
-RUN rm -rf  /usr/share/nginx/html/index.html
-RUN cp -r . /usr/share/nginx/html/
+FROM nginx
+RUN rm /etc/nginx/conf.d/default.conf
+COPY content /usr/share/nginx/html
+COPY conf /etc/nginx
